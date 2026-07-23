@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MindCare | Relaxation Videos</title>
+
+
+<style>
+
+/* ===== BASIC ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+
+body{
+
+    background:#f8f9f3;
+    color:#264653;
+
+}
+
+
+
+/* ===== HEADER ===== */
+
+
+header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 50px;
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #2f6b3f,
+    #457b9d
+    );
+
+    color:white;
+
+}
+
+
+
+.logo{
+
+    font-size:28px;
+
+    animation:logoMove 3s infinite;
+
+}
+
+
+
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin:10px;
+
+    transition:.5s;
+
+}
+
+
+
+nav a:hover{
+
+    color:#a7c957;
+
+    transform:translateY(-5px);
+
+}
+
+
+
+
+
+
+/* ===== HERO ===== */
+
+
+.hero{
+
+
+height:55vh;
+
+
+background:
+
+
+linear-gradient(
+rgba(0,40,20,.5),
+rgba(0,40,20,.5)
+),
+
+
+url("images/nature.jpg");
+
+
+background-size:cover;
+
+background-position:center;
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+text-align:center;
+
+color:white;
+
+
+}
+
+
+
+.hero h1{
+
+font-size:55px;
+
+animation:fade 2s;
+
+}
+
+
+
+.hero p{
+
+font-size:22px;
+
+margin-top:20px;
+
+}
+
+
+
+
+
+/* ===== VIDEO SECTION ===== */
+
+
+.section{
+
+padding:60px 40px;
+
+text-align:center;
+
+}
+
+
+
+.section h2{
+
+font-size:40px;
+
+color:#2f6b3f;
+
+margin-bottom:40px;
+
+}
+
+
+
+
+.video-container{
+
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+
+}
+
+
+
+
+
+.video-card{
+
+
+width:350px;
+
+
+background:white;
+
+
+border-radius:20px;
+
+
+padding:20px;
+
+
+box-shadow:
+
+0 10px 25px rgba(47,107,63,.25);
+
+
+transition:.5s;
+
+
+}
+
+
+
+
+.video-card:hover{
+
+
+transform:
+
+translateY(-15px);
+
+
+box-shadow:
+
+0 20px 40px rgba(47,107,63,.4);
+
+
+}
+
+
+
+
+video{
+
+
+width:100%;
+
+
+height:220px;
+
+
+border-radius:15px;
+
+
+}
+
+
+.video-wrap{
+    position:relative;
+    width:100%;
+    padding-top:56.25%; /* 16:9 ratio */
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.video-wrap iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border:0;
+}
+
+
+
+
+
+.video-card h3{
+
+
+color:#2f6b3f;
+
+margin:20px 0 10px;
+
+
+}
+
+
+
+
+.video-card p{
+
+
+line-height:1.6;
+
+
+}
+
+
+
+
+
+
+
+/* ===== RELAX BOX ===== */
+
+
+.relax-box{
+
+
+background:
+
+
+linear-gradient(
+
+135deg,
+
+#6a994e,
+
+#a8dadc
+
+);
+
+
+color:white;
+
+
+padding:60px;
+
+
+text-align:center;
+
+
+}
+
+
+
+
+.relax-box h2{
+
+
+font-size:40px;
+
+margin-bottom:20px;
+
+
+}
+
+
+
+.relax-box p{
+
+
+font-size:20px;
+
+line-height:1.8;
+
+
+}
+
+
+
+
+
+
+
+/* ===== FOOTER ===== */
+
+
+footer{
+
+
+background:#264653;
+
+color:white;
+
+padding:25px;
+
+text-align:center;
+
+
+}
+
+
+
+
+
+/* ===== ANIMATION ===== */
+
+
+@keyframes fade{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+@keyframes logoMove{
+
+
+0%,100%{
+
+transform:rotate(0);
+
+}
+
+
+50%{
+
+transform:rotate(10deg);
+
+}
+
+
+}
+
+
+
+
+
+/* ===== MOBILE ===== */
+
+
+@media(max-width:800px){
+
+
+header{
+
+flex-direction:column;
+
+}
+
+
+nav{
+
+margin-top:15px;
+
+text-align:center;
+
+}
+
+
+.hero h1{
+
+font-size:35px;
+
+}
+
+
+.video-card{
+
+width:90%;
+
+}
+
+
+}
+
+
+</style>
+
+<link rel="stylesheet" href="../Css/shared-header.css">
+
+
+</head>
+
+
+
+<body>
+
+
+
+
+<!-- HEADER -->
+
+
+<header>
+
+
+<div class="logo">
+
+🌿 MindCare
+
+</div>
+
+
+
+
+<nav>
+
+
+<a href="home.html">Home</a>
+
+<a href="login.html">Login</a>
+
+<a href="stress.html">Stress</a>
+
+<a href="meditation.html">Meditation</a>
+
+<a href="sleep.html">Sleep</a>
+
+<a href="lifestyle.html">Lifestyle</a>
+
+<a href="doctors.html">Doctors</a>
+
+<a href="videos.html" class="active">Videos</a>
+
+<a href="gallery.html">Gallery</a>
+
+<a href="map.html">Map</a>
+
+<a href="contact.html">Contact</a>
+
+
+</nav>
+
+
+</header>
+
+
+
+
+
+
+
+
+<!-- HERO -->
+
+
+<section class="hero">
+
+
+<div>
+
+
+<h1>
+Relaxation Videos 🎥
+</h1>
+
+
+<p>
+
+Calm your mind with peaceful sounds and nature views
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- VIDEOS -->
+
+
+<section class="section">
+
+
+<h2>
+Peaceful Wellness Videos
+</h2>
+
+
+
+
+<div class="video-container">
+
+
+
+
+
+<div class="video-card">
+
+
+<video controls>
+
+
+<source src="/video/birdforest.mp4" type="video/mp4">
+
+
+Your browser does not support video.
+
+
+</video>
+
+
+
+<h3>
+🌿 Forest Relaxation
+</h3>
+
+
+<p>
+
+Enjoy peaceful forest sounds to reduce stress.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="video-card">
+
+    <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/aQTUAZ1-nss?si=WJxzetd3lHHb9xJD" title="Ocean Meditation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+
+    <h3>
+    🌊 Ocean Meditation
+    </h3>
+
+
+    <p>
+
+    Relax with calming ocean waves and nature sounds.
+
+    </p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="video-card">
+
+    <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/YRJ6xoiRcpQ?si=2dhhc5IyWpUhuHtR" title="Mindfulness Practice" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+
+    <h3>
+    🧘 Mindfulness Practice
+    </h3>
+
+
+    <p>
+
+    Follow simple meditation techniques for peace.
+
+    </p>
+
+
+</div>
+
+
+<div class="video-card">
+
+    <div class="video-wrap">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/4ENuzv-Xe0Q?si=9D-GhJ1a0kVmEC6b" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+
+    <h3>
+    🌅 Calm Ambient
+    </h3>
+
+
+    <p>
+
+    Gentle ambient sounds to soothe and relax.
+
+    </p>
+
+
+</div>
+
+
+
+<div class="video-card">
+
+    <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/081bLdQKX-Q?si=3i0NhyvVk-_WbSvI" title="Peaceful Sounds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+
+    <h3>
+    🌸 Peaceful Sounds
+    </h3>
+
+
+    <p>
+
+    Soft calming sounds to help you relax and focus.
+
+    </p>
+
+
+</div>
+
+<div class="video-card">
+
+<div class="video-wrap">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yIQd2Ya0Ziw?si=mo4-DOkScQCgBgrA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<h3>Rain Sounds</h3>
+<p>
+Relax with the soothing sounds of rain to reduce stress and improve focus.
+</p>        
+</div >
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="relax-box">
+
+
+<h2>
+Take A Peaceful Moment 🌱
+</h2>
+
+
+<p>
+
+A few minutes of relaxation every day can improve focus,
+reduce stress and create emotional balance.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+<footer>
+
+
+<p>
+
+© 2026 MindCare Wellness | Final group project of group 5
+
+</p>
+
+
+</footer>
+
+
+
+
+
+</body>
+
+</html>

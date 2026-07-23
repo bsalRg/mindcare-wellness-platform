@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MindCare | Meditation</title>
+
+
+<style>
+
+/* ===== BASIC ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+
+body{
+
+    background:#f8f9f3;
+    color:#264653;
+
+}
+
+
+
+/* ===== HEADER ===== */
+
+
+header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 50px;
+
+    background:
+    linear-gradient(
+    90deg,
+    #2f6b3f,
+    #457b9d
+    );
+
+    color:white;
+
+}
+
+
+
+.logo{
+
+    font-size:28px;
+
+    animation:logoMove 3s infinite;
+
+}
+
+
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin:10px;
+
+    transition:.5s;
+
+}
+
+
+
+nav a:hover{
+
+    color:#a7c957;
+
+    transform:translateY(-5px);
+
+}
+
+
+
+
+
+/* ===== HERO ===== */
+
+
+.hero{
+
+
+height:55vh;
+
+
+background:
+
+
+linear-gradient(
+rgba(0,40,20,.45),
+rgba(0,40,20,.45)
+),
+
+
+url("images/meditation.jpg");
+
+
+background-size:cover;
+
+background-position:center;
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+text-align:center;
+
+color:white;
+
+
+}
+
+
+
+.hero h1{
+
+font-size:55px;
+
+animation:fade 2s;
+
+}
+
+
+
+.hero p{
+
+font-size:22px;
+
+margin-top:20px;
+
+}
+
+
+
+/* ===== SECTION ===== */
+
+
+.section{
+
+padding:60px 40px;
+
+text-align:center;
+
+}
+
+
+
+.section h2{
+
+font-size:40px;
+
+color:#2f6b3f;
+
+margin-bottom:40px;
+
+}
+
+
+
+
+
+/* ===== BREATHING CIRCLE ===== */
+
+
+.breathing{
+
+
+width:180px;
+
+height:180px;
+
+margin:30px auto;
+
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#6a994e,
+
+#a8dadc
+
+);
+
+
+border-radius:50%;
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+color:white;
+
+font-size:22px;
+
+
+animation:breathe 5s infinite;
+
+
+}
+
+
+
+
+
+@keyframes breathe{
+
+
+0%{
+
+transform:scale(1);
+
+}
+
+
+
+50%{
+
+transform:scale(1.3);
+
+}
+
+
+
+100%{
+
+transform:scale(1);
+
+}
+
+
+}
+
+
+
+
+
+
+/* ===== CARDS ===== */
+
+
+.cards{
+
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+
+}
+
+
+
+.card{
+
+
+width:300px;
+
+
+background:white;
+
+
+padding:30px;
+
+
+border-radius:20px;
+
+
+box-shadow:
+
+0 10px 25px rgba(47,107,63,.25);
+
+
+transition:.5s;
+
+
+}
+
+
+
+.card:hover{
+
+
+transform:
+
+translateY(-15px);
+
+
+box-shadow:
+
+0 20px 35px rgba(47,107,63,.35);
+
+
+}
+
+
+
+.card h3{
+
+color:#2f6b3f;
+
+font-size:25px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.card p{
+
+line-height:1.7;
+
+}
+
+
+
+
+
+/* ===== ROUTINE ===== */
+
+
+.routine{
+
+
+background:
+
+
+linear-gradient(
+
+135deg,
+
+#6a994e,
+
+#a8dadc
+
+);
+
+
+color:white;
+
+padding:60px;
+
+
+text-align:center;
+
+
+}
+
+
+
+.routine h2{
+
+font-size:40px;
+
+margin-bottom:25px;
+
+}
+
+
+
+.routine p{
+
+font-size:20px;
+
+line-height:1.8;
+
+}
+
+
+
+
+
+/* ===== FOOTER ===== */
+
+
+footer{
+
+background:#264653;
+
+color:white;
+
+text-align:center;
+
+padding:25px;
+
+}
+
+
+
+
+/* ===== ANIMATION ===== */
+
+
+@keyframes fade{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+@keyframes logoMove{
+
+
+0%,100%{
+
+transform:rotate(0);
+
+}
+
+
+50%{
+
+transform:rotate(10deg);
+
+}
+
+
+}
+
+
+
+
+
+/* ===== MOBILE ===== */
+
+
+@media(max-width:800px){
+
+
+header{
+
+flex-direction:column;
+
+}
+
+
+nav{
+
+margin-top:15px;
+
+text-align:center;
+
+}
+
+
+.hero h1{
+
+font-size:35px;
+
+}
+
+
+.card{
+
+width:90%;
+
+}
+
+
+}
+
+
+</style>
+
+<link rel="stylesheet" href="../Css/shared-header.css">
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- HEADER -->
+<header>
+
+
+<div class="logo">
+
+🌿 MindCare
+
+</div>
+
+
+<nav>
+
+<a href="home.html">Home</a>
+
+<a href="login.html">Login</a>
+
+<a href="stress.html">Stress</a>
+
+<a href="meditation.html" class="active">Meditation</a>
+
+<a href="sleep.html">Sleep</a>
+
+<a href="lifestyle.html">Lifestyle</a>
+
+<a href="doctors.html">Doctors</a>
+
+<a href="videos.html">Videos</a>
+
+<a href="gallery.html">Gallery</a>
+
+<a href="map.html">Map</a>
+
+
+
+<a href="contact.html">Contact</a>
+
+</nav>
+
+
+</header>
+
+
+
+
+<!-- HERO -->
+
+
+<section class="hero">
+
+
+<div>
+
+<h1>
+Peaceful Meditation
+</h1>
+
+
+<p>
+Relax your mind and connect with your inner self 🌱
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- BREATHING -->
+
+
+<section class="section">
+
+
+<h2>
+Breathing Exercise
+</h2>
+
+
+<div class="breathing">
+
+Breathe
+
+</div>
+
+
+<p>
+
+Follow the circle:
+<br>
+Inhale when it grows,
+Exhale when it becomes smaller.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+<!-- BENEFITS -->
+
+
+<section class="section">
+
+
+<h2>
+Benefits of Meditation
+</h2>
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+🧠 Mental Peace
+</h3>
+
+<p>
+
+Reduces anxiety and improves emotional control.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+🌿 Better Focus
+</h3>
+
+<p>
+
+Improves concentration and mindfulness.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+💚 Inner Balance
+</h3>
+
+<p>
+
+Creates harmony between mind and body.
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="routine">
+
+
+<h2>
+Daily Meditation Routine
+</h2>
+
+
+<p>
+
+🌅 Morning:
+Start your day with 10 minutes of silence.
+
+<br><br>
+
+🌙 Evening:
+Relax your mind before sleeping with meditation.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+<footer>
+
+<p>
+© 2026 MindCare Wellness | HTML + CSS Project
+</p>
+
+</footer>
+
+
+
+</body>
+
+</html>

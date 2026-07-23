@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindCare · Music Therapy</title>
+    <style>
+        /* ––– RESET & BASE ––– */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f8f9f3;
+            color: #264653;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ––– SCROLLBAR ––– */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8f9f3;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2f6b3f;
+            border-radius: 4px;
+        }
+
+        /* ––– HEADER ––– */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: linear-gradient(90deg, #2f6b3f, #457b9d);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            transition: 0.4s;
+        }
+        
+        nav a:hover,
+        nav a.active {
+            color: #a7c957;
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-3px);
+        }
+
+        /* ––– UTILITY ––– */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ––– HERO ––– */
+        .hero {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50vh;
+            text-align: center;
+            padding: 60px 24px;
+            flex-direction: column;
+            gap: 10px;
+            background: linear-gradient(rgba(0, 40, 20, 0.15), rgba(0, 40, 20, 0.15));
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(47, 107, 63, 0.1);
+            padding: 6px 22px;
+            border-radius: 60px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #2f6b3f;
+            border: 1px solid rgba(47, 107, 63, 0.2);
+            margin-bottom: 8px;
+        }
+        .hero h1 {
+            font-size: clamp(44px, 10vw, 80px);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            color: #264653;
+            max-width: 860px;
+        }
+        .hero p {
+            font-size: clamp(18px, 2.2vw, 24px);
+            color: #4a5b67;
+            max-width: 580px;
+            margin-top: 6px;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+        .hero-cta {
+            margin-top: 24px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            padding: 14px 38px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.30s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn--primary {
+            background: linear-gradient(90deg, #2f6b3f, #457b9d);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(47, 107, 63, 0.3);
+        }
+        .btn--primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(47, 107, 63, 0.4);
+        }
+        .btn--ghost {
+            background: white;
+            color: #264653;
+            border: 2px solid #2f6b3f;
+        }
+        .btn--ghost:hover {
+            background: #f0f5f0;
+            transform: translateY(-3px);
+        }
+
+        /* ––– WAVE ANIMATION (hero) ––– */
+        .wave-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            height: 56px;
+            margin-top: 14px;
+        }
+        .wave-bar {
+            width: 5px;
+            border-radius: 6px;
+            background: linear-gradient(180deg, #2f6b3f, #457b9d);
+            animation: waveRise 1.6s ease-in-out infinite alternate;
+            transform-origin: bottom;
+        }
+        .wave-bar:nth-child(1) {
+            height: 28px;
+            animation-delay: 0.0s;
+        }
+        .wave-bar:nth-child(2) {
+            height: 44px;
+            animation-delay: 0.2s;
+        }
+        .wave-bar:nth-child(3) {
+            height: 56px;
+            animation-delay: 0.4s;
+        }
+        .wave-bar:nth-child(4) {
+            height: 48px;
+            animation-delay: 0.6s;
+        }
+        .wave-bar:nth-child(5) {
+            height: 36px;
+            animation-delay: 0.8s;
+        }
+        .wave-bar:nth-child(6) {
+            height: 52px;
+            animation-delay: 1.0s;
+        }
+        .wave-bar:nth-child(7) {
+            height: 24px;
+            animation-delay: 1.2s;
+        }
+        @keyframes waveRise {
+            0% {
+                transform: scaleY(0.3);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scaleY(1);
+                opacity: 1;
+            }
+        }
+
+        /* ––– SECTION ––– */
+        section {
+            position: relative;
+            z-index: 2;
+            padding: 60px 24px;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #2f6b3f;
+            background: rgba(47, 107, 63, 0.08);
+            padding: 4px 18px;
+            border-radius: 40px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(47, 107, 63, 0.12);
+        }
+        .section-title {
+            font-size: clamp(30px, 4.5vw, 48px);
+            font-weight: 650;
+            letter-spacing: -1px;
+            color: #264653;
+            margin-bottom: 12px;
+            line-height: 1.15;
+        }
+        .section-sub {
+            font-size: 18px;
+            color: #4a5b67;
+            max-width: 640px;
+            font-weight: 400;
+        }
+
+        /* ––– PLAYLIST SECTION ––– */
+        .player-section {
+            background: #f8f9f3;
+            border-top: 1px solid rgba(47, 107, 63, 0.1);
+            border-bottom: 1px solid rgba(47, 107, 63, 0.1);
+        }
+        .player-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 32px;
+            margin-top: 28px;
+            align-items: start;
+        }
+        .player-card {
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            border: 1px solid rgba(47, 107, 63, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+        .player-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        .player-card iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            border: 0;
+            background: #f8f9f3;
+        }
+        .player-card .now-playing {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 6px 6px 6px;
+            color: #4a5b67;
+            font-size: 14px;
+        }
+        .player-card .now-playing span {
+            color: #264653;
+            font-weight: 600;
+        }
+        .player-card .now-playing .pulse {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #2f6b3f;
+            animation: pulseDot 1.8s ease-in-out infinite;
+        }
+        @keyframes pulseDot {
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(0.85);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        /* ––– PLAYLIST ITEMS ––– */
+        .playlist {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .song-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 16px 12px 12px;
+            border-radius: 8px;
+            background: white;
+            border: 1px solid rgba(47, 107, 63, 0.1);
+            cursor: pointer;
+            transition: all 0.30s;
+        }
+        .song-item:hover {
+            background: #f4f7f3;
+            transform: translateX(4px);
+            border-color: rgba(47, 107, 63, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .song-item.active {
+            background: rgba(47, 107, 63, 0.1);
+            border-color: rgba(47, 107, 63, 0.3);
+            box-shadow: 0 2px 8px rgba(47, 107, 63, 0.1);
+        }
+        .song-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            flex-shrink: 0;
+            border: 1px solid rgba(47, 107, 63, 0.1);
+        }
+        .song-meta {
+            flex: 1;
+        }
+        .song-meta strong {
+            display: block;
+            color: #264653;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        .song-meta span {
+            font-size: 13px;
+            color: #4a5b67;
+        }
+        .play-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(47, 107, 63, 0.1);
+            color: #264653;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .play-btn:hover {
+            background: #2f6b3f;
+            color: white;
+            transform: scale(1.08);
+            box-shadow: 0 4px 12px rgba(47, 107, 63, 0.25);
+        }
+        .song-item.active .play-btn {
+            background: #2f6b3f;
+            color: white;
+            box-shadow: 0 4px 12px rgba(47, 107, 63, 0.25);
+        }
+
+        /* ––– BENEFITS CARDS ––– */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 28px;
+        }
+        .benefit-card {
+            background: white;
+            padding: 30px 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(47, 107, 63, 0.1);
+            transition: all 0.35s;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            background: #f8f9f3;
+            border-color: rgba(47, 107, 63, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .benefit-card .icon {
+            font-size: 40px;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .benefit-card h3 {
+            color: #264653;
+            font-weight: 600;
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+        .benefit-card p {
+            color: #4a5b67;
+            font-size: 15px;
+        }
+
+        /* ––– ROUTINE ––– */
+        .routine {
+            background: #f4f7f3;
+            border-top: 1px solid rgba(47, 107, 63, 0.1);
+        }
+        .routine-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 28px;
+        }
+        .routine-step {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            border: 1px solid rgba(47, 107, 63, 0.1);
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .routine-step:hover {
+            background: #f8f9f3;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .routine-step .time {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #2f6b3f;
+            background: rgba(47, 107, 63, 0.08);
+            padding: 2px 14px;
+            border-radius: 40px;
+            display: inline-block;
+            margin-bottom: 10px;
+            border: 1px solid rgba(47, 107, 63, 0.12);
+        }
+        .routine-step h4 {
+            color: #264653;
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        .routine-step p {
+            color: #4a5b67;
+            font-size: 14px;
+        }
+
+        /* ––– TIPS ––– */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .tip-item {
+            background: white;
+            padding: 18px 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(47, 107, 63, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: #4a5b67;
+            transition: all 0.25s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+        .tip-item:hover {
+            background: #f4f7f3;
+            border-color: rgba(47, 107, 63, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+        .tip-item .emoji {
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        /* ––– FOOTER ––– */
+        footer {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 40px 24px 28px;
+            border-top: 1px solid rgba(47, 107, 63, 0.1);
+            color: #4a5b67;
+            font-size: 14px;
+            background: #f8f9f3;
+        }
+        footer .quote {
+            font-size: 20px;
+            color: rgba(8, 160, 89, 0.55);
+            font-weight: 350;
+            font-style: italic;
+            max-width: 500px;
+            margin: 0 auto 16px;
+            letter-spacing: 0.2px;
+        }
+        footer .quote::before {
+            content: "“";
+            color: #5d9b7a;
+            font-size: 28px;
+        }
+        footer .quote::after {
+            content: "”";
+            color: #5d9b7a;
+            font-size: 28px;
+        }
+
+        /* ––– RESPONSIVE ––– */
+        @media (max-width: 900px) {
+            .player-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                min-height: 56vh;
+            }
+            header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+                padding: 14px 20px;
+            }
+            nav {
+                justify-content: center;
+            }
+            nav a {
+                padding: 4px 10px;
+                font-size: 12px;
+            }
+            .hero h1 {
+                font-size: 38px;
+            }
+            .player-card iframe {
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 30px;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .routine-timeline {
+                grid-template-columns: 1fr;
+            }
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+            .song-item {
+                padding: 10px 12px;
+                gap: 10px;
+            }
+            .song-item img {
+                width: 48px;
+                height: 48px;
+            }
+            .btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+            .section-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ––– ANIMATED BACKGROUND ––– -->
+    <div class="bg-ambient"></div>
+    <div class="orb orb--1"></div>
+    <div class="orb orb--2"></div>
+    <div class="orb orb--3"></div>
+
+    <!-- ––– HERO ––– -->
+    <section class="hero">
+        <h1>Music Therapy<br />for the Soul</h1>
+        <p>Let the rhythm guide you to calm. Scientifically proven music therapy to heal your mind, body, and spirit.</p>
+        <div class="hero-cta">
+            <a href="#player" class="btn btn--primary">▶ Start Listening</a>
+            <a href="#benefits" class="btn btn--ghost">Learn More</a>
+        </div>
+        <div class="wave-visual">
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+        </div>
+    </section>
+
+    <!-- ––– PLAYLIST SECTION ––– -->
+    <section class="player-section" id="player">
+        <div class="container">
+            <span class="section-label">🎧 Playlist</span>
+            <h2 class="section-title">Calming Soundscapes</h2>
+            <p class="section-sub">Choose a track below. Each piece is curated to reduce anxiety, improve focus, and bring you into a state of peaceful flow.</p>
+
+            <div class="player-grid">
+                <!-- Player -->
+                <div class="player-card">
+                    <iframe id="ytplayer" src="https://www.youtube.com/embed/5qap5aO4i9A?rel=0&modestbranding=1&controls=1&autoplay=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="now-playing">
+                        <span class="pulse"></span>
+                        Now playing: <span id="nowPlayingTitle">Lofi Chill Beats</span>
+                    </div>
+                </div>
+
+                <!-- Playlist -->
+                <div class="playlist" id="playlist">
+                    <div class="song-item active" data-video-id="5qap5aO4i9A" data-title="Lofi Chill Beats">
+                        <img src="https://img.youtube.com/vi/5qap5aO4i9A/hqdefault.jpg" alt="Lofi" loading="lazy" />
+                        <div class="song-meta">
+                            <strong>Lofi Chill Beats</strong>
+                            <span>Study · Relax</span>
+                        </div>
+                        <button class="play-btn" aria-label="Play">▶</button>
+                    </div>
+                    <div class="song-item" data-video-id="4Tr0otuiQuU" data-title="Relaxing Piano">
+                        <img src="https://img.youtube.com/vi/4Tr0otuiQuU/hqdefault.jpg" alt="Piano" loading="lazy" />
+                        <div class="song-meta">
+                            <strong>Relaxing Piano</strong>
+                            <span>Calm instrumental</span>
+                        </div>
+                        <button class="play-btn" aria-label="Play">▶</button>
+                    </div>
+                    <div class="song-item" data-video-id="2OEL4P1Rz04" data-title="Ambient Relaxation">
+                        <img src="https://img.youtube.com/vi/2OEL4P1Rz04/hqdefault.jpg" alt="Ambient" loading="lazy" />
+                        <div class="song-meta">
+                            <strong>Ambient Relaxation</strong>
+                            <span>Nature · Drones</span>
+                        </div>
+                        <button class="play-btn" aria-label="Play">▶</button>
+                    </div>
+                    <div class="song-item" data-video-id="7NOSDKb0HlU" data-title="Deep Meditation">
+                        <img src="https://img.youtube.com/vi/7NOSDKb0HlU/hqdefault.jpg" alt="Meditation" loading="lazy" />
+                        <div class="song-meta">
+                            <strong>Deep Meditation</strong>
+                            <span>Binaural · Theta</span>
+                        </div>
+                        <button class="play-btn" aria-label="Play">▶</button>
+                    </div>
+                    <div class="song-item" data-video-id="jfKfPfyJRdk" data-title="Healing Frequencies">
+                        <img src="https://img.youtube.com/vi/jfKfPfyJRdk/hqdefault.jpg" alt="Healing" loading="lazy" />
+                        <div class="song-meta">
+                            <strong>Healing Frequencies</strong>
+                            <span>432 Hz · Solfeggio</span>
+                        </div>
+                        <button class="play-btn" aria-label="Play">▶</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ––– BENEFITS ––– -->
+    <section id="benefits">
+        <div class="container">
+            <span class="section-label">💚 Why Music Therapy</span>
+            <h2 class="section-title">Healing Through Sound</h2>
+            <p class="section-sub">Music therapy isn't just listening — it's a transformative practice backed by neuroscience. Here's what it can do for you.</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="icon">🧘</span>
+                    <h3>Stress Reduction</h3>
+                    <p>Lowers cortisol and activates the parasympathetic nervous system for deep relaxation.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">🌙</span>
+                    <h3>Better Sleep</h3>
+                    <p>Calming rhythms improve sleep quality and help you fall asleep faster, deeper.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">🎯</span>
+                    <h3>Focus & Clarity</h3>
+                    <p>Enhances concentration, working memory, and creative flow states.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">❤️</span>
+                    <h3>Emotional Balance</h3>
+                    <p>Helps process emotions, reduce anxiety, and restore inner equilibrium.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ––– TIPS ––– -->
+    <section style="padding-top:0;">
+        <div class="container">
+            <span class="section-label">📋 How to Practice</span>
+            <h2 class="section-title">Daily Music Therapy Rituals</h2>
+            <p class="section-sub">Simple, powerful ways to integrate music therapy into your everyday life.</p>
+            <div class="tips-grid">
+                <div class="tip-item"><span class="emoji">🎧</span> Use quality headphones for immersion</div>
+                <div class="tip-item"><span class="emoji">🌿</span> Create a quiet, comfortable space</div>
+                <div class="tip-item"><span class="emoji">🌬️</span> Sync your breath with the rhythm</div>
+                <div class="tip-item"><span class="emoji">📱</span> Keep distractions away — no notifications</div>
+                <div class="tip-item"><span class="emoji">🎵</span> Match music to your current mood</div>
+                <div class="tip-item"><span class="emoji">⏳</span> Even 15 minutes a day makes a difference</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ––– ROUTINE ––– -->
+    <section class="routine">
+        <div class="container">
+            <span class="section-label">⏰ Your Daily Flow</span>
+            <h2 class="section-title">A Day of Healing Music</h2>
+            <p class="section-sub">Follow this gentle routine to weave music therapy into your day — from sunrise to sunset.</p>
+
+            <div class="routine-timeline">
+                <div class="routine-step">
+                    <span class="time">🌅 Morning</span>
+                    <h4>Uplift & Energize</h4>
+                    <p>Start your day with uplifting acoustic or world music while you have breakfast. Set a positive tone.</p>
+                </div>
+                <div class="routine-step">
+                    <span class="time">⚡ Midday</span>
+                    <h4>Focus & Flow</h4>
+                    <p>Use lo-fi, classical, or ambient music during work or study. 2–3 hours of gentle background sound.</p>
+                </div>
+                <div class="routine-step">
+                    <span class="time">🌇 Evening</span>
+                    <h4>Unwind & Reflect</h4>
+                    <p>Soft piano, acoustic guitar, or nature sounds to transition out of the workday and into rest.</p>
+                </div>
+                <div class="routine-step">
+                    <span class="time">🌙 Night</span>
+                    <h4>Deep Rest</h4>
+                    <p>20 minutes of binaural beats or meditative drone music before bed. Let go of the day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ––– FOOTER ––– -->
+    <footer>
+        <div class="quote">Music is the silence between the notes</div>
+        <p>© 2026 MindCare Wellness · Final group project of group 5</p>
+    </footer>
+
+    <!-- ––– JAVASCRIPT ––– -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const player = document.getElementById('ytplayer');
+            const items = document.querySelectorAll('.song-item');
+            const nowPlayingTitle = document.getElementById('nowPlayingTitle');
+
+            function playItem(item) {
+                const id = item.dataset.videoId;
+                const title = item.dataset.title || 'Untitled';
+                if (!id) return;
+
+                // Update iframe
+                player.src =
+                    `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&controls=1&autoplay=1&iv_load_policy=3`;
+
+                // Update active state
+                items.forEach(s => s.classList.remove('active'));
+                item.classList.add('active');
+
+                // Update now playing text
+                nowPlayingTitle.textContent = title;
+            }
+
+            // Click handler on playlist items
+            document.getElementById('playlist').addEventListener('click', (e) => {
+                const li = e.target.closest('.song-item');
+                if (!li) return;
+                playItem(li);
+            });
+
+            // Keyboard accessibility
+            items.forEach(item => {
+                item.setAttribute('tabindex', '0');
+                item.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') playItem(item);
+                });
+            });
+
+            // Auto-play the first active track on load
+            const active = document.querySelector('.song-item.active');
+            if (active) {
+                // Set the initial title
+                nowPlayingTitle.textContent = active.dataset.title || 'Lofi Chill Beats';
+                // Load the video without autoplay (already in iframe src)
+                // but ensure the iframe src is correct
+                const id = active.dataset.videoId;
+                if (id) {
+                    player.src =
+                        `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&controls=1&autoplay=0&iv_load_policy=3`;
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

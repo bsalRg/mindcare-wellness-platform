@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MindCare | Nature Walking</title>
+
+
+<style>
+
+/* ===== BASIC ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+
+body{
+
+    background:#f8f9f3;
+    color:#264653;
+
+}
+
+
+
+/* ===== HEADER ===== */
+
+
+header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 50px;
+
+    background:
+    linear-gradient(
+    90deg,
+    #2f6b3f,
+    #457b9d
+    );
+
+    color:white;
+
+}
+
+
+
+.logo{
+
+    font-size:28px;
+
+    animation:logoMove 3s infinite;
+
+}
+
+
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin:10px;
+
+    transition:.5s;
+
+}
+
+
+
+nav a:hover{
+
+    color:#a7c957;
+
+    transform:translateY(-5px);
+
+}
+
+
+
+/* ===== HERO ===== */
+
+
+.hero{
+
+
+height:55vh;
+
+
+background:
+
+
+linear-gradient(
+rgba(0,40,20,.45),
+rgba(0,40,20,.45)
+),
+
+
+url("images/forest.jpg");
+
+
+background-size:cover;
+
+background-position:center;
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+text-align:center;
+
+color:white;
+
+
+}
+
+
+
+.hero h1{
+
+font-size:55px;
+
+animation:fade 2s;
+
+}
+
+
+
+.hero p{
+
+font-size:22px;
+
+margin-top:20px;
+
+}
+
+
+
+/* ===== SECTION ===== */
+
+
+.section{
+
+padding:60px 40px;
+
+text-align:center;
+
+}
+
+
+
+.section h2{
+
+font-size:40px;
+
+color:#2f6b3f;
+
+margin-bottom:40px;
+
+}
+
+
+
+/* ===== WALKING TIPS ===== */
+
+.tips{
+
+max-width:700px;
+
+margin:40px auto;
+
+text-align:left;
+
+background:white;
+
+padding:30px;
+
+border-radius:15px;
+
+box-shadow:0 5px 15px rgba(47,107,63,.2);
+
+}
+
+.tips h3{
+
+color:#2f6b3f;
+
+margin-bottom:15px;
+
+font-size:22px;
+
+}
+
+.tips ul{
+
+margin-left:20px;
+
+line-height:1.8;
+
+}
+
+.tips li{
+
+margin-bottom:10px;
+
+}
+
+
+/* ===== CARDS ===== */
+
+
+.cards{
+
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+
+}
+
+
+
+.card{
+
+
+width:300px;
+
+
+background:white;
+
+
+padding:30px;
+
+
+border-radius:20px;
+
+
+box-shadow:
+
+0 10px 25px rgba(47,107,63,.25);
+
+
+transition:.5s;
+
+
+}
+
+
+
+.card:hover{
+
+
+transform:
+
+translateY(-15px);
+
+
+box-shadow:
+
+0 20px 35px rgba(47,107,63,.35);
+
+
+}
+
+
+
+.card h3{
+
+color:#2f6b3f;
+
+font-size:25px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.card p{
+
+line-height:1.7;
+
+}
+
+
+
+/* ===== ROUTINE ===== */
+
+
+.routine{
+
+
+background:
+
+
+linear-gradient(
+
+135deg,
+
+#6a994e,
+
+#a8dadc
+
+);
+
+
+color:white;
+
+padding:60px;
+
+
+text-align:center;
+
+
+}
+
+
+
+.routine h2{
+
+font-size:40px;
+
+margin-bottom:25px;
+
+}
+
+
+
+.routine p{
+
+font-size:20px;
+
+line-height:1.8;
+
+}
+
+
+/* ===== FOOTER ===== */
+
+
+footer{
+
+background:#264653;
+
+color:white;
+
+text-align:center;
+
+padding:25px;
+
+}
+
+
+
+
+/* ===== ANIMATION ===== */
+
+
+@keyframes fade{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+@keyframes logoMove{
+
+
+0%,100%{
+
+transform:rotate(0);
+
+}
+
+
+50%{
+
+transform:rotate(10deg);
+
+}
+
+
+}
+
+
+
+
+/* ===== MOBILE ===== */
+
+
+@media(max-width:800px){
+
+
+header{
+
+flex-direction:column;
+
+}
+
+
+nav{
+
+margin-top:15px;
+
+text-align:center;
+
+}
+
+
+.hero h1{
+
+font-size:35px;
+
+}
+
+
+.card{
+
+width:90%;
+
+}
+
+
+}
+
+
+</style>
+
+<link rel="stylesheet" href="../Css/shared-header.css">
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- HEADER -->
+
+
+<header>
+
+
+<div class="logo">
+
+🌿 MindCare
+
+</div>
+
+
+<nav>
+
+<a href="home.html">Home</a>
+
+<a href="login.html">Login</a>
+
+<a href="stress.html">Stress</a>
+
+<a href="meditation.html">Meditation</a>
+
+<a href="sleep.html">Sleep</a>
+
+<a href="lifestyle.html">Lifestyle</a>
+
+<a href="doctors.html">Doctors</a>
+
+<a href="videos.html">Videos</a>
+
+<a href="gallery.html">Gallery</a>
+
+<a href="map.html">Map</a>
+
+<a href="contact.html">Contact</a>
+
+</nav>
+
+
+</header>
+
+
+
+
+<!-- HERO -->
+
+
+<section class="hero">
+
+
+<div>
+
+<h1>
+Nature Walking
+</h1>
+
+
+<p>
+Connect with nature and heal your mind 🌿
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- WALKING GUIDE -->
+
+
+<section class="section">
+
+
+<h2>
+Benefits of Walking in Nature
+</h2>
+
+
+<p style="font-size:18px; margin-bottom:30px;">
+
+Walking in nature is one of the most effective ways to reduce stress and improve your mental health. The combination of physical activity and natural surroundings creates a powerful healing effect.
+
+</p>
+
+
+<div class="tips">
+
+<h3>🚶 How to Start Your Nature Walk:</h3>
+
+<ul>
+
+<li><strong>Choose a peaceful location</strong> - Parks, forests, trails, or gardens work best</li>
+
+<li><strong>Wear comfortable shoes</strong> - Ensure good support for a longer walk</li>
+
+<li><strong>Start with 20-30 minutes</strong> - Gradually increase duration as you get comfortable</li>
+
+<li><strong>Walk slowly and mindfully</strong> - Focus on your surroundings, not the pace</li>
+
+<li><strong>Observe nature</strong> - Look at trees, flowers, birds, and feel the fresh air</li>
+
+<li><strong>Breathe deeply</strong> - Take slow, deep breaths to maximize oxygen intake</li>
+
+<li><strong>Walk during golden hour</strong> - Early morning or sunset for best experience</li>
+
+<li><strong>Leave your phone on silent</strong> - Minimize distractions and be present</li>
+
+</ul>
+
+</div>
+
+
+</section>
+
+
+
+
+<!-- BENEFITS -->
+
+
+<section class="section">
+
+
+<h2>
+Why Nature Walks Transform Your Well-being
+</h2>
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+🧠 Mental Clarity
+</h3>
+
+<p>
+
+Clears negative thoughts and improves focus.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+💪 Physical Health
+</h3>
+
+<p>
+
+Strengthens body and improves cardiovascular fitness.
+
+</p>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+😊 Mood Enhancement
+</h3>
+
+<p>
+
+Releases endorphins and reduces stress hormones.
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+<section class="routine">
+
+
+<h2>
+Make Nature Walking a Daily Habit
+</h2>
+
+
+<p>
+
+🌅 Morning Walk:
+Start your day with 30 minutes in nature for energy.
+
+<br><br>
+
+🌅 Afternoon Walk:
+Take a midday break to recharge and refocus.
+
+<br><br>
+
+🌙 Evening Walk:
+End your day peacefully to reflect and unwind.
+
+</p>
+
+
+</section>
+
+
+
+
+<footer>
+
+<p>
+© 2026 MindCare Wellness | HTML + CSS Project
+</p>
+
+</footer>
+
+
+
+</body>
+
+</html>
